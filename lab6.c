@@ -6,9 +6,9 @@ int main()  {
     scanf("%d", &x);
     printf("Ingrese un valor para y\n");
     scanf("%d", &y);
-    printf("Ingrese un valor para x\n");
+    printf("Ingrese un valor para z\n");
     scanf("%d", &z);
-    printf("Ingrese un valor para y\n");
+    printf("Ingrese un valor para m\n");
     scanf("%d", &m);
 
     if (x<y) {
