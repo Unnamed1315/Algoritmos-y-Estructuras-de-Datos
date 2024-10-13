@@ -7,7 +7,7 @@ void imprimir_booleano(char name, bool x);
 bool pedir_booleano(char name) {
     int x;
 
-    printf("Por favor, ingrese un valor para el booleano '%c': \n",name);
+    printf("Por favor, ingrese un valor para el booleano '%c' (0 o 1): \n",name);
     scanf("%d",&x);
 
     return x;
