@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <assert.h>
 
 int pedir_entero(char name) {
     int valor;
@@ -18,23 +19,30 @@ int suma_hasta(int n) {
     m = n;
     res = 0;
     n = 0;
+    //assert( n < m);
 
-    do
-    {
+    do {
         res= n + 1 + res;
         n= n + 1;
-    } while (n != m);
+    } while (n < m);
     
     return res;
 }
 
 int main() {
-    int n;
+    
+    int n,n_aux;
 
-    n= pedir_entero('n');   
-    imprimir_entero('n', n);
-    n= suma_hasta(n);
-    printf("La suma desde 0 hasta 'n' es %d \n", n);
+    n= pedir_entero('n');
+    n_aux = n;
 
+    if (n >= 0)
+    {
+        n= suma_hasta(n);
+        printf("La suma desde 0 hasta %d es %d \n", n_aux,n);
+    } else {
+        printf("Error, n debe ser no negativo\n");
+    }
+    
     return 0;
 }
