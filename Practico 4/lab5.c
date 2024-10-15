@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <assert.h>
 
 int pedir_entero(char name) {
     int valor;
