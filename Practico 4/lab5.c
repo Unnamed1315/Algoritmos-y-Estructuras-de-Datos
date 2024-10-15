@@ -19,12 +19,12 @@ int suma_hasta(int n) {
     m = n;
     res = 0;
     n = 0;
-    //assert( n < m);
 
-    do {
+    while (n < m)
+    {
         res= n + 1 + res;
         n= n + 1;
-    } while (n < m);
+    }
     
     return res;
 }
