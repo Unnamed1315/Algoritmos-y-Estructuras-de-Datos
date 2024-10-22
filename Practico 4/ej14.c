@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <limits.h>
 
 void pedir_arreglo(int n_max, int a[]) {
     int i;
@@ -9,31 +10,6 @@ void pedir_arreglo(int n_max, int a[]) {
         scanf("%d", &a[i]);
         i = i + 1;
     }
-}
-
-int max(int a, int b) {
-    if (a >= b)
-    {
-        return a;
-    } else 
-    {
-        return b;
-    }
-}
-
-int sumatoria (int inicio,int tam, int a[]) {
-    int res, pos, n;
-    n = tam;
-    res = 0;
-    pos = inicio;
-
-    while (pos < tam)
-    {
-        res = a[pos] + res;
-        pos = pos + 1;
-    }
-    return res;
-    
 }
 
 int main () {
@@ -47,14 +23,27 @@ int main () {
     pedir_arreglo(tamaño, arreglo);
     
     r = 0;
-    r2 = 0;
-    n = 0;
-    while (n < tamaño)
+    m = 0;
+    while (m < tamaño)
     {
-        r = max (r, max(r2 + arreglo[n],0));
-        r2 = max(r2 + arreglo[n],0);
-        n= n+1;
+        r2 = 0;
+        n = 0;
+        while (n < m)
+        {
+            if (arreglo[n]*arreglo[(n+1)>=0])
+            {
+            r2 = r2 + 1;
+            n= n+1;
+            } else {
+            n = n + 1;
+            }
+
+        }
+        r = r + r2;
+        m = m + 1;
     }
+    r = r + r2;
+    m = m + 1;
     
     printf("res: %d \n", r);
     return 0;
