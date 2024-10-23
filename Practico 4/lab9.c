@@ -35,14 +35,19 @@ struct div_t division(int x, int y){
 int main(){
     int x, y;
     x= pedir_entero('x');
-    y= pedir_entero('y');
-
-    if (y == 0)
+    if (x <= 0)
     {
-        printf("El divisor es cero.\n");
-    } else {
-        imprime_division(division(x,y));  
-    }  
+        printf("El dividendo debe ser mayor o igual a cero.\n");
+        return 1;
+    }
+    y= pedir_entero('y');
+    if (y <= 0)
+    {
+        printf("El divisor debe ser mayor a cero.\n");
+        return 1;
+    }
+
+    imprime_division(division(x,y));   
 
     return 0;
 }
