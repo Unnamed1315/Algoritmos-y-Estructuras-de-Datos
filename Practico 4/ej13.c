@@ -40,8 +40,6 @@ int main () {
     int tamaño, r, r2,  n, m;
     printf("Por favor, ingrese el tamaño máximo del arreglo\n");
     scanf("%d", &tamaño);
-    //printf("Por favor, ingrese el elemento inicial desde el que quiere sumar el arreglo\n");
-    //scanf("%d", &m);
     int arreglo[tamaño]; 
 
     pedir_arreglo(tamaño, arreglo);

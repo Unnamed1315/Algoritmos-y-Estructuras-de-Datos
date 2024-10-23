@@ -12,7 +12,7 @@ int main()  {
     i = 0;
     c = 0;
 
-    do
+    while (i < 4)
     {
         if (array[i]>0) {
             c = c + 1;
@@ -20,7 +20,7 @@ int main()  {
             
         };
         i = i + 1;
-    } while (i < 4);
+    };
     
     printf("i: %d \n", i);
     printf("c: %d \n", c);
