@@ -21,26 +21,21 @@ int main () {
     
     r = 0;
     m = 0;
-    while (m < tamaño)
+    while (m != tamaño)
     {
         r2 = 0;
         n = 0;
-        while (n < m)
+        while (n != m)
         {
-            if (arreglo[n]*arreglo[(n+1)>=0])
+            if (arreglo[n]*arreglo[(n+1)]>=0)
             {
-            r2 = r2 + 1;
-            n= n+1;
-            } else {
-            n = n + 1;
+            r2 = r2 + 1;        
             }
-
+            n = n + 1;
         }
         r = r + r2;
         m = m + 1;
     }
-    r = r + r2;
-    m = m + 1;
     
     printf("res: %d \n", r);
     return 0;

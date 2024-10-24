@@ -29,7 +29,6 @@ int suma_hasta(int n) {
 }
 
 int main() {
-    
     int n,n_aux;
 
     n= pedir_entero('n');
