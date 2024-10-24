@@ -56,11 +56,11 @@ bool existe_multiplo(int m, int tam, int a[]) {
 
 int main(){
     int tamaño,m,opcion;
-    int arreglo[tamaño];
     bool res;
-
     printf("Por favor, ingrese el tamaño máximo del arreglo\n");
     scanf("%d", &tamaño);
+    int arreglo[tamaño];
+    
     pedir_arreglo(tamaño, arreglo);
 
     while (!(opcion == 1 || opcion == 2) )
