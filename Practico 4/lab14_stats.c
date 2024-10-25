@@ -1,70 +1,90 @@
 #include <stdio.h>
+#include <float.h>
 
-int pedir_entero(char name) {
-    int valor;
-
-    printf("Por favor, ingrese un valor para la variable '%c':\n", name);
-    scanf("%d", &valor);
-
-    return valor;
-}
-
-void pedir_arreglo(int n_max, int a[]) {
+void pedir_arreglo(int n_max, float a[]) {
     int i;
     i=0;
 
     while (i<n_max) {
         printf("Ingrese el elemento %d del arreglo: \n", i);
-        scanf("%d", &a[i]);
+        scanf("%f", &a[i]);
         i = i + 1;
     }
 }
 
-struct comp_t {    
-    int menores;
-    int iguales;
-    int mayores;
+struct datos_t {    
+    float maximo;
+    float minimo;
+    float promedio;
 };
 
-struct comp_t cuantos(int tam, int a[], int elem) {
-    struct comp_t comp;
+float min(float a, float b){
+    int res;
+
+    if ( a > b)
+    {
+        res = b;
+    } else {
+        res = a;
+    };
+
+    return res;
+}
+
+float max(float a, float b){
+    float res;
+
+    if ( a < b)
+    {
+        res = b;
+    } else {
+        res = a;
+    };
+
+    return res;
+}
+
+struct datos_t stats(int tam, float a[]) {
+    struct datos_t datos;
     int pos;
-    
-    comp.menores=0;
-    comp.iguales=0;
-    comp.mayores=0;
+    float sum;
+
+    datos.maximo= FLT_MIN;
+    datos.minimo= FLT_MAX;
+    sum = 0;
     pos = 0;
 
     while (pos < tam) {
-        if (a[pos] > elem) {
-            comp.mayores = comp.mayores + 1;
-        } else if (a[pos] == elem){
-            comp.iguales = comp.iguales + 1;
-        } else {
-            comp.menores= comp.menores + 1;
-        }
+        datos.maximo= max(datos.maximo,a[pos]);
+        datos.minimo= min(datos.minimo,a[pos]);
+        sum = a[pos] + sum;
         pos = pos + 1;
     }
     
-    return comp;
+    datos.promedio = sum / tam;
+
+    return datos;
 }
 
-void imprime_resultado (struct comp_t d, int n){
-    printf("El arreglo tiene %d elementos mayores a %d.\n",d.mayores,n);
-    printf("El arreglo tiene %d elementos iguales a %d.\n",d.iguales,n); 
-    printf("El arreglo tiene %d elementos menores a %d.\n",d.menores,n); 
+void imprime_resultado (struct datos_t d){
+    printf("El máximo del arreglo es %f.\n",d.maximo);
+    printf("El mínimo del arreglo es %f.\n",d.minimo);
+    printf("El promedio del arreglo es %f.\n",d.promedio); 
 }
 
 int main(){
-    int n, tamaño;
-    printf("Por favor, ingrese el tamaño máximo del arreglo\n");
-    scanf("%d", &tamaño);
-    int arreglo[tamaño];
+    int tamaño;
+    tamaño = -1;
+    while (tamaño <= 0)
+    {
+        printf("Por favor, ingrese un número positivo para el tamaño del arreglo.\n");
+        scanf("%d", &tamaño);
+    }
+    float arreglo[tamaño];
 
     pedir_arreglo(tamaño, arreglo);
-    n = pedir_entero('n');
 
-    imprime_resultado(cuantos(tamaño, arreglo, n),n);
+    imprime_resultado(stats(tamaño, arreglo));
 
     return 0;
 }
