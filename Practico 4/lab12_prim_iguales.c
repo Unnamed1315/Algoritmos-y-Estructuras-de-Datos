@@ -25,6 +25,17 @@ int prim_iguales(int tam, int a[]) {
     return res;
 }
 
+void imprimir_arreglo(int n_max, int a[]) {
+    int i;
+    i = 0;
+
+    printf("El arreglo ingresado es:\n");
+    while (i < n_max) {
+        printf("El elemento %d es %d: \n", i, a[i]);
+        i = i + 1;
+    }
+}
+
 int main(){
     int tamaño, resultado;
     printf("Por favor, ingrese el tamaño máximo del arreglo\n");
@@ -42,7 +53,7 @@ int main(){
 
     printf("La longitud del tramo inicial más largo cuyos elementos son todos iguales es: %d\n",resultado);
 
-
+    imprimir_arreglo(resultado, arreglo);
 
     return 0;
 }
