@@ -4,10 +4,12 @@
 bool es_primo(int N) {
     int m = 2;
     bool res = true;
+    bool var2 = true;
 
-    while (m < N)
-    {
-        res = res && ( N % m != 0);
+    while (m < N && var2)
+    {   
+        var2 = ( N % m != 0);
+        res = res && var2;
         m++;
     }
     
@@ -17,10 +19,9 @@ bool es_primo(int N) {
 int nesimo_primo(int N) {
     int m;
     int res2;
-    int res;
+    int res = 2;
 
     m = 1;
-    res = 2;
     while (m < N)
     {   
         res2 = res + 1;
@@ -37,17 +38,15 @@ int nesimo_primo(int N) {
 
 int main(){
     int entero;
-    int res;
 
-    entero = -1;
+    entero = 0;
     while (entero <= 0)
     {
         printf("Sea n un número positivo, ingrese que n-esimo número primo quiere calcular. \n");
         scanf("%d", &entero);
     }
 
-    res = nesimo_primo(entero);
-    printf("El n-esimo primo es %d\n", res);
+    printf("El n-esimo primo es %d\n", nesimo_primo(entero));
     
     return 0;
 }
