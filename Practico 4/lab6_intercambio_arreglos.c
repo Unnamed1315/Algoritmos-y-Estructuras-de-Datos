@@ -1,12 +1,20 @@
 #include <stdio.h>
+
+void intercambiar(int tam, int a[], int i, int j) {
+    int elem1, elem2;
+    elem1 =a[i]; 
+    elem2 =a[j];
+    a[i]=elem2;
+    a[j]=elem1;
+}
+
 void pedir_arreglo(int n_max, int a[]) {
-    int i;
-    i=0;
+    int i = 0;
 
     while (i<n_max) {
         printf("Ingrese el elemento %d del arreglo: \n", i);
         scanf("%d", &a[i]);
-        i = i + 1;
+        i++;
     }
 }
 
@@ -21,13 +29,7 @@ void imprimir_arreglo(int n_max, int a[]) {
     }
 }
 
-void intercambiar(int tam, int a[], int i, int j) {
-    int elem1, elem2;
-    elem1 =a[i]; 
-    elem2 =a[j];
-    a[i]=elem2;
-    a[j]=elem1;
-}
+
 
 int main() {
     int tamaño,i,j;

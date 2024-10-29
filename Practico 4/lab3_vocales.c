@@ -17,9 +17,9 @@ bool es_vocal(char letra) {
         letra == 'o' || letra == 'O' ||
         letra == 'u' || letra == 'U') {
             return true;
-        } else {
-            return false;
         }
+    return false;
+        
 }
 
 int main() {
